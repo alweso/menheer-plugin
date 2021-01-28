@@ -1,0 +1,13 @@
+.post-list {
+  .thumbnail {
+    border-radius: 0px !important;
+    overflow: visible !important;
+  }
+  .big-wrapper {
+    .wrapper {
+      &--big {
+        display:grid;grid-template-columns: 33fr 66fr;column-gap: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+
+    .comment-box {
+      &_single {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        column-gap: 20px;
+      }
+      &_author-thumb {
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 100%;
+        }
+      }
+      &_comment-content {
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+        background: #12a6ff;
+        padding: 15px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        position: relative;
+        &:before {
+          content: ' ';
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: -26px;
+          right: auto;
+          top: 20px;
+          border: 13px solid;
+          border-top-color: currentcolor;
+          border-right-color: currentcolor;
+          border-bottom-color: currentcolor;
+          border-left-color: currentcolor;
+          border-color: #12a6ff #12a6ff transparent transparent;
+        }
+      }
+      &_name-and-date {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        border-top: 1px solid rgba(255,255,255,0.5);
+        padding-top: 10px;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+    }

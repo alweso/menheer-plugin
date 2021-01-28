@@ -1,0 +1,11 @@
+.post-list .thumbnail {
+  border-radius: 0px !important;
+  overflow: visible !important;
+}
+.post-list .big-wrapper .wrapper--big {
+  display: grid;
+  grid-template-columns: 33fr 66fr;
+  column-gap: 10px;
+}
+
+/*# sourceMappingURL=post-list.css.map */

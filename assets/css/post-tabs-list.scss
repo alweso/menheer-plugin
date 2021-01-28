@@ -1,0 +1,17 @@
+
+    .post-list-tabs {
+      .wrapper {
+        &--big {
+          display:grid;grid-template-columns: 33fr 66fr;column-gap: 10px;
+        }
+      }
+    }
+
+
+      .elementor-widget-post-tabs-list .tab-content {
+          border-left: 1px solid #dee2e6;
+          border-bottom: 1px solid #dee2e6;
+          border-right: 1px solid #dee2e6;
+          border-radius: 0px 0px 5px 5px;
+          padding: 10px;
+        }

@@ -1,0 +1,64 @@
+.news-title {
+  color: #fff;
+  font-size: 30px;
+  line-height: 32px;
+}
+.news-title .fa {
+  font-size: 22px;
+  margin-right: 6px;
+}
+
+.comments-views-date {
+  color: #c9c9c9;
+  font-size: 13px;
+}
+.comments-views-date i {
+  margin-right: 3px;
+}
+.comments-views-date .comments, .comments-views-date .views {
+  margin-right: 9px;
+}
+.comments-views-date .author a {
+  color: inherit;
+}
+.comments-views-date .date {
+  float: right;
+}
+
+.big-wrapper {
+  display: grid;
+}
+.big-wrapper .thumbnail, .big-wrapper .thumbnail img {
+  border-radius: 5px !important;
+  overflow: hidden;
+}
+.big-wrapper .widget-image {
+  overflow: hidden;
+}
+.big-wrapper .wp-post-image:hover {
+  transform: scale(1.2);
+  transition: transform 240ms ease-out;
+}
+.big-wrapper .category {
+  margin-bottom: 5px;
+}
+.big-wrapper .news-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+  line-height: 20px;
+}
+.big-wrapper .news-title .fa {
+  font-size: 16px;
+  margin-right: 3px;
+}
+.big-wrapper .author {
+  font-size: 13px;
+  margin-top: 4px;
+}
+.big-wrapper .author-avatar img {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+}
+
+/*# sourceMappingURL=general.css.map */

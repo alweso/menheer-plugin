@@ -1,0 +1,163 @@
+.awesomesauce-post-block.style-1 .big-wrapper, .post-slider.style-1 .big-wrapper, .owl-item.style-1 .big-wrapper {
+  grid-template-columns: 5fr 4fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.awesomesauce-post-block.style-1 .wrapper--big, .post-slider.style-1 .wrapper--big, .owl-item.style-1 .wrapper--big {
+  grid-row-start: 1;
+  grid-row-end: 5;
+  position: relative;
+}
+.awesomesauce-post-block.style-1 .wrapper--big .thumbnail > a, .post-slider.style-1 .wrapper--big .thumbnail > a, .owl-item.style-1 .wrapper--big .thumbnail > a {
+  display: block;
+  background-size: cover !important;
+  height: 100%;
+}
+.awesomesauce-post-block.style-1 .wrapper--big .description, .post-slider.style-1 .wrapper--big .description, .owl-item.style-1 .wrapper--big .description {
+  position: relative;
+}
+.awesomesauce-post-block.style-1 .wrapper--big .description p, .post-slider.style-1 .wrapper--big .description p, .owl-item.style-1 .wrapper--big .description p {
+  color: #fff;
+}
+.awesomesauce-post-block.style-1 .wrapper--big .description .description-inner, .post-slider.style-1 .wrapper--big .description .description-inner, .owl-item.style-1 .wrapper--big .description .description-inner {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 100px 10px 10px 10px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=0 );
+  /* IE6-9 */
+}
+.awesomesauce-post-block.style-1 .wrapper--small .thumbnail, .post-slider.style-1 .wrapper--small .thumbnail, .owl-item.style-1 .wrapper--small .thumbnail {
+  width: 145px;
+  float: left;
+  margin-right: 10px;
+}
+.awesomesauce-post-block.style-2 .big-wrapper, .post-slider.style-2 .big-wrapper, .owl-item.style-2 .big-wrapper {
+  grid-template-columns: 11fr 11fr 8fr 8fr;
+  grid-template-rows: 1fr 1fr;
+}
+.awesomesauce-post-block.style-2 .wrapper--big, .post-slider.style-2 .wrapper--big, .owl-item.style-2 .wrapper--big {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.awesomesauce-post-block.style-2 .wrapper--big a, .post-slider.style-2 .wrapper--big a, .owl-item.style-2 .wrapper--big a {
+  display: block;
+  background-size: cover !important;
+  height: 100%;
+}
+.awesomesauce-post-block.style-2 .wrapper--big .description, .post-slider.style-2 .wrapper--big .description, .owl-item.style-2 .wrapper--big .description {
+  position: relative;
+}
+.awesomesauce-post-block.style-2 .wrapper--big .description h4, .awesomesauce-post-block.style-2 .wrapper--big .description p, .post-slider.style-2 .wrapper--big .description h4, .post-slider.style-2 .wrapper--big .description p, .owl-item.style-2 .wrapper--big .description h4, .owl-item.style-2 .wrapper--big .description p {
+  color: #fff;
+}
+.awesomesauce-post-block.style-2 .wrapper--big .description .description-inner, .post-slider.style-2 .wrapper--big .description .description-inner, .owl-item.style-2 .wrapper--big .description .description-inner {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 100px 10px 10px 10px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=0 );
+  /* IE6-9 */
+}
+.awesomesauce-post-block.style-3 .big-wrapper, .post-slider.style-3 .big-wrapper, .owl-item.style-3 .big-wrapper {
+  grid-template-columns: 8fr 8fr 11fr 11fr;
+  grid-template-rows: 1fr 1fr;
+}
+.awesomesauce-post-block.style-3 .wrapper--big, .post-slider.style-3 .wrapper--big, .owl-item.style-3 .wrapper--big {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  position: relative;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.awesomesauce-post-block.style-3 .wrapper--big .thumbnail > a, .post-slider.style-3 .wrapper--big .thumbnail > a, .owl-item.style-3 .wrapper--big .thumbnail > a {
+  display: block;
+  background-size: cover !important;
+  height: 100%;
+}
+.awesomesauce-post-block.style-3 .wrapper--big .description, .post-slider.style-3 .wrapper--big .description, .owl-item.style-3 .wrapper--big .description {
+  position: relative;
+}
+.awesomesauce-post-block.style-3 .wrapper--big .description p, .post-slider.style-3 .wrapper--big .description p, .owl-item.style-3 .wrapper--big .description p {
+  color: #fff;
+}
+.awesomesauce-post-block.style-3 .wrapper--big .description .description-inner, .post-slider.style-3 .wrapper--big .description .description-inner, .owl-item.style-3 .wrapper--big .description .description-inner {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 100px 10px 10px 10px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=0 );
+  /* IE6-9 */
+}
+.awesomesauce-post-block.style-4 .big-wrapper, .post-slider.style-4 .big-wrapper, .owl-item.style-4 .big-wrapper {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.awesomesauce-post-block.style-4 .wrapper--big, .post-slider.style-4 .wrapper--big, .owl-item.style-4 .wrapper--big {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  position: relative;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.awesomesauce-post-block.style-4 .wrapper--big:first-of-type, .post-slider.style-4 .wrapper--big:first-of-type, .owl-item.style-4 .wrapper--big:first-of-type {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.awesomesauce-post-block.style-4 .wrapper--big:nth-of-type(2), .post-slider.style-4 .wrapper--big:nth-of-type(2), .owl-item.style-4 .wrapper--big:nth-of-type(2) {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.awesomesauce-post-block.style-4 .wrapper--big a.thumbnail, .post-slider.style-4 .wrapper--big a.thumbnail, .owl-item.style-4 .wrapper--big a.thumbnail {
+  display: block;
+  background-size: cover;
+  height: 100%;
+}
+.awesomesauce-post-block.style-5 .big-wrapper, .post-slider.style-5 .big-wrapper, .owl-item.style-5 .big-wrapper {
+  grid-template-columns: 1fr;
+}
+.awesomesauce-post-block.style-5 .wrapper--small .thumbnail, .post-slider.style-5 .wrapper--small .thumbnail, .owl-item.style-5 .wrapper--small .thumbnail {
+  width: 200px;
+  float: left;
+  margin-right: 10px;
+}
+.awesomesauce-post-block.style-6 .big-wrapper, .post-slider.style-6 .big-wrapper, .owl-item.style-6 .big-wrapper {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.awesomesauce-post-block.style-6 .wrapper--big, .post-slider.style-6 .wrapper--big, .owl-item.style-6 .wrapper--big {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  position: relative;
+}
+.awesomesauce-post-block.style-6 .wrapper--big a, .post-slider.style-6 .wrapper--big a, .owl-item.style-6 .wrapper--big a {
+  display: block;
+  background-size: cover !important;
+}
+
+/*# sourceMappingURL=post-block.css.map */

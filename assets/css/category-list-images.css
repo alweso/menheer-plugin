@@ -1,0 +1,57 @@
+.elementor-widget-category-list-images .categories-with-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+.elementor-widget-category-list-images .category-image {
+  background-color: #ffffff;
+  position: relative;
+}
+.elementor-widget-category-list-images .category-posts-number {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  z-index: 2;
+}
+.elementor-widget-category-list-images .category-posts-number > span {
+  color: white;
+  position: absolute;
+  left: 8px;
+  top: 1px;
+}
+.elementor-widget-category-list-images .category-opacity-color {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 1;
+}
+.elementor-widget-category-list-images .category-image-inner {
+  display: block;
+  border-radius: 5%;
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  padding-top: 38px;
+  height: 100px !important;
+  text-decoration: none;
+  background-attachment: fixed;
+}
+.elementor-widget-category-list-images .category-image-inner > span {
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 15px;
+  border-radius: 17px;
+  font-size: 17px;
+  z-index: 2;
+}
+
+/*# sourceMappingURL=category-list-images.css.map */
