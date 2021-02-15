@@ -182,7 +182,7 @@ class VideoPlaylist extends Widget_Base {
     // $this->add_inline_editing_attributes( 'order_by', 'advanced' );
     // $this->add_inline_editing_attributes( 'post_count', 'advanced' );
     ?>
-    <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+    <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
 
 
     <div class="vid-main-wrapper clearfix">

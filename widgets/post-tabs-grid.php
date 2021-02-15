@@ -251,16 +251,7 @@ $this->add_control(
     'default' => 'yes',
   ]
 );
-$this->add_control(
-  'show_tags',
-  [
-    'label' => esc_html__('Show tags', 'menheer-plugin'),
-    'type' => Controls_Manager::SWITCHER,
-    'label_on' => esc_html__('Yes', 'menheer-plugin'),
-    'label_off' => esc_html__('No', 'menheer-plugin'),
-    'default' => 'no',
-  ]
-);
+
 $this->add_control(
   'show_author',
   [
@@ -346,7 +337,7 @@ $this->add_responsive_control(
                 [
                   'label' => __( 'Title color', '' ),
                   'type' => \Elementor\Controls_Manager::COLOR,
-                  'default' => '#000000',
+                  'default' => '#212529',
                   'selectors' => [
                     '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title' => 'color: {{VALUE}}',
                   ],
@@ -368,7 +359,7 @@ $this->add_responsive_control(
                 [
                   'label' => __( 'Description color', '' ),
                   'type' => \Elementor\Controls_Manager::COLOR,
-                  'default' => '#000000',
+                  'default' => '#212529',
                   'selectors' => [
                     '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner p' => 'color: {{VALUE}}',
                   ],
@@ -396,6 +387,19 @@ $this->add_responsive_control(
                 ]
               );
 
+              $this->add_control(
+                'big_category_display',
+                [
+                  'label' => __( 'Category display', 'menheer-plugin' ),
+                  'type' => Controls_Manager::SELECT,
+                  'default' => __( 'color', 'menheer-plugin' ),
+                  'options' => [
+                    'background_color'  => __( 'Color background', 'menheer-plugin' ),
+                    'color' => __( 'Color text', 'menheer-plugin' ),
+                  ],
+                ]
+              );
+
   $this->add_control(
     'big_thumbnail_border',
     [
@@ -410,7 +414,7 @@ $this->add_responsive_control(
     [
       'name' => 'big_thumb_border',
       'fields_options' => [
-    'border' => ['default' => 'solid'],
+    'border' => ['default' => 'none'],
     'width' => [
       'default' => [
         'top' => 6,
@@ -451,7 +455,7 @@ $this->add_responsive_control(
         'isLinked' => true,
       ],
     ],
-    'color' => ['default' => '#000'],
+    'color' => ['default' => '#dee2e6'],
   ],
       'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper',
     ]
@@ -472,7 +476,7 @@ $this->add_responsive_control(
     [
       'label' =>esc_html__( 'Grid item column gap (css grid)', 'menheer-plugin' ),
       'type' => \Elementor\Controls_Manager::NUMBER,
-      'default' => 15,
+      'default' => 10,
       'selectors' => [
         '{{WRAPPER}} .awesomesauce-post-block .big-wrapper' => 'column-gap: {{VALUE}}px;',
       ],
@@ -484,7 +488,7 @@ $this->add_responsive_control(
     [
       'label' =>esc_html__( 'Grid item row gap (css grid)', 'menheer-plugin' ),
       'type' => \Elementor\Controls_Manager::NUMBER,
-      'default' => 15,
+      'default' => 10,
       'selectors' => [
         '{{WRAPPER}} .awesomesauce-post-block .big-wrapper' => 'row-gap: {{VALUE}}px;',
       ],
@@ -597,15 +601,15 @@ $this->add_responsive_control(
                   ],
                   'devices' => [ 'desktop', 'tablet', 'mobile' ],
                   'desktop_default' => [
-                    'size' => 10,
+                    'size' => 5,
                     'unit' => 'px',
                   ],
                   'tablet_default' => [
-                    'size' => 10,
+                    'size' => 5,
                     'unit' => 'px',
                   ],
                   'mobile_default' => [
-                    'size' => 10,
+                    'size' => 5,
                     'unit' => 'px',
                   ],
                   'selectors' => [
@@ -629,15 +633,15 @@ $this->add_responsive_control(
                   ],
                   'devices' => [ 'desktop', 'tablet', 'mobile' ],
                   'desktop_default' => [
-                    'size' => 10,
+                    'size' => 2,
                     'unit' => 'px',
                   ],
                   'tablet_default' => [
-                    'size' => 10,
+                    'size' => 2,
                     'unit' => 'px',
                   ],
                   'mobile_default' => [
-                    'size' => 10,
+                    'size' => 2,
                     'unit' => 'px',
                   ],
                   'selectors' => [
@@ -728,15 +732,15 @@ protected function render() {
   $show_author         = $settings['show_author'];
   $show_views         = $settings['show_views'];
   $show_comments         = $settings['show_comments'];
-  $show_tags        = $settings['show_tags'];
   $crop	= ($settings['post_title_crop']) ? $settings['post_title_crop'] : 20;
   $post_content_crop	= ($settings['post_content_crop']) ? $settings['post_content_crop'] : 50;
+  $big_category_display = $settings['big_category_display'];
 
   $this->add_inline_editing_attributes( 'title', 'none' );
 // $this->add_inline_editing_attributes( 'order_by', 'advanced' );
 // $this->add_inline_editing_attributes( 'post_count', 'advanced' );
   ?>
-  <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+  <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">

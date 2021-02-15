@@ -1,7 +1,7 @@
 .awesomesauce-post-block, .post-slider, .owl-item {
   &.style-1 {
     .big-wrapper {
-      grid-template-columns:5fr 4fr;grid-template-rows:1fr 1fr 1fr 1fr;
+      grid-template-columns:5fr 4fr;grid-auto-rows: minmax(min-content, max-content);
     }
     .wrapper {
       &--big {
@@ -28,15 +28,15 @@
           }
         }
         &--small {
-          .thumbnail {
-            width:145px;float:left;margin-right:10px;
-          }
+          display: grid;
+          grid-template-columns: 145px auto;
+          grid-column-gap: 10px;
         }
       }
     }
     &.style-2 {
       .big-wrapper {
-        grid-template-columns:11fr 11fr 8fr 8fr;grid-template-rows:1fr 1fr;
+        grid-template-columns:11fr 11fr 8fr 8fr;grid-auto-rows: minmax(min-content, max-content);
       }
       .wrapper {
         &--big {
@@ -66,7 +66,7 @@
     }
     &.style-3 {
       .big-wrapper {
-        grid-template-columns:8fr 8fr 11fr 11fr;grid-template-rows:1fr 1fr;
+        grid-template-columns:8fr 8fr 11fr 11fr;grid-auto-rows: minmax(min-content, max-content);
       }
       .wrapper {
         &--big {
@@ -143,5 +143,84 @@
           }
         }
       }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .awesomesauce-post-block {
+        &.style-1 {
+          .big-wrapper {
+            grid-template-columns:1fr;
+            .wrapper {
+              &--big {
+                height: 420px;
+              }
+            }
+          }
+        }
+
+        &.style-2 {
+          .big-wrapper {
+            grid-template-columns:1fr 1fr;
+            .wrapper {
+              &--big {
+                height: 420px;
+              }
+            }
+          }
+        }
+
+        &.style-3 {
+          .big-wrapper {
+            grid-template-columns:1fr 1fr;
+            .wrapper {
+              &--big {
+                height: 420px;
+                grid-row-start:1;
+                grid-row-end:2;
+                grid-column-start: 1;
+                grid-column-end: 3;
+              }
+            }
+          }
+        }
+
+        &.style-4 {
+          .big-wrapper {
+            display: block !important;
+          }
+        }
+
+        &.style-6 {
+          .big-wrapper {
+            display: block !important;
+            .wrapper {
+              &--big {
+                .thumbnail {
+                  a {
+                    height: 420px !important;  
+                  }
+                }
+                display: block !important;
+              }
+            }
+          }
+        }
+
+    }
+  }
+
+  @media (max-width: 400px) {
+    .awesomesauce-post-block {
+        &.style-1 {
+          .big-wrapper {
+            grid-template-columns:1fr;
+            .wrapper {
+              &--big {
+                height: 250px;
+              }
+            }
+          }
+        }
     }
   }

@@ -241,7 +241,7 @@ class PostListWithNumbers extends Widget_Base {
                   [
                     'label' => __( 'Title color', '' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
-                    'default' => '#000000',
+                    'default' => '#212529',
                     'selectors' => [
                       '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title' => 'color: {{VALUE}}',
                     ],
@@ -263,7 +263,7 @@ class PostListWithNumbers extends Widget_Base {
                   [
                     'label' => __( 'Description color', '' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
-                    'default' => '#000000',
+                    'default' => '#212529',
                     'selectors' => [
                       '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner p' => 'color: {{VALUE}}',
                     ],
@@ -273,7 +273,7 @@ class PostListWithNumbers extends Widget_Base {
                 $this->add_group_control(
                   \Elementor\Group_Control_Typography::get_type(),
                   [
-                    'label' => __( 'Big details typography', '' ),
+                    'label' => __( 'Details typography', '' ),
                     'name' => 'big_details_typography',
                     'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner .comments-views-date span',
                   ]
@@ -282,11 +282,36 @@ class PostListWithNumbers extends Widget_Base {
                 $this->add_control(
                   'big_details_color_2',
                   [
-                    'label' => __( 'details color', '' ),
+                    'label' => __( 'Details color', '' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#989898',
                     'selectors' => [
                       '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner .comments-views-date span' => 'color: {{VALUE}}',
+                    ],
+                  ]
+                );
+
+                $this->add_control(
+                  'big_category_display',
+                  [
+                    'label' => __( 'Category display', 'menheer-plugin' ),
+                    'type' => Controls_Manager::SELECT,
+                    'default' => __( 'color', 'menheer-plugin' ),
+                    'options' => [
+                      'background_color'  => __( 'Color background', 'menheer-plugin' ),
+                      'color' => __( 'Color text', 'menheer-plugin' ),
+                    ],
+                  ]
+                );
+
+                $this->add_control(
+                  'numbers_background_color',
+                  [
+                    'label' => __( 'Numbers background color', '' ),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'default' => '#6a04ff',
+                    'selectors' => [
+                      '{{WRAPPER}} .post-number' => 'background-color: {{VALUE}}',
                     ],
                   ]
                 );
@@ -305,18 +330,18 @@ class PostListWithNumbers extends Widget_Base {
       [
         'name' => 'big_thumb_border',
         'fields_options' => [
-          'border' => ['default' => 'none'],
+          'border' => ['default' => 'solid'],
           'width' => [
             'default' => [
-              'top' => 0,
-              'right' => 0,
-              'bottom' => 0,
-              'left' => 0,
+              'top' => 1,
+              'right' => 1,
+              'bottom' => 1,
+              'left' => 1,
               'unit'=> 'px',
               'isLinked' => true,
             ],
           ],
-          'color' => ['default' => '#FFFFFF'],
+          'color' => ['default' => '#dee2e6'],
         ],
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper .thumbnail',
       ]
@@ -346,7 +371,7 @@ class PostListWithNumbers extends Widget_Base {
           'isLinked' => true,
         ],
       ],
-      'color' => ['default' => '#000'],
+      'color' => ['default' => '#dee2e6'],
     ],
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper',
       ]
@@ -570,7 +595,8 @@ class PostListWithNumbers extends Widget_Base {
     $post_count_small      = $settings['post_count'];
     $crop_small	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
     $post_content_crop_small	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 50;
-
+    $big_category_display = $settings['big_category_display'];
+    
     $this->add_inline_editing_attributes( 'title', 'none' );
     ?>
     <?php
@@ -590,7 +616,7 @@ class PostListWithNumbers extends Widget_Base {
     if ( $queryd->have_posts() ) : ?>
     <div class="awesomesauce-post-block post-list post-list-with-numbers">
       <?php if($show_title) { ?>
-          <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+          <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
       <?php }  ?>
         <?php  require 'block_styles/post-list-with-numbers.php'; ?>
       <?php wp_reset_postdata(); ?>

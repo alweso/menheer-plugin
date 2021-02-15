@@ -115,6 +115,7 @@ class PostList extends Widget_Base {
         'label' => __( 'Title', 'menheer-plugin' ),
         'type' => Controls_Manager::TEXT,
         'default' => __( 'Post list', 'menheer-plugin' ),
+        'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
 
@@ -144,7 +145,7 @@ class PostList extends Widget_Base {
       [
         'label'         => esc_html__( 'Post Exerpt limit', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
-        'default' => '30',
+        'default' => '14',
         'condition' => [ 'show_exerpt' => ['yes'] ]
 
       ]
@@ -267,16 +268,7 @@ class PostList extends Widget_Base {
         'default' => 'yes',
       ]
     );
-    $this->add_control(
-      'show_tags',
-      [
-        'label' => esc_html__('Show tags', 'menheer-plugin'),
-        'type' => Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Yes', 'menheer-plugin'),
-        'label_off' => esc_html__('No', 'menheer-plugin'),
-        'default' => 'no',
-      ]
-    );
+
     $this->add_control(
       'show_author',
       [
@@ -321,7 +313,7 @@ class PostList extends Widget_Base {
 
 
                 $this->add_control(
-                  'big_typo_section',
+                  'typo_section',
                   [
                     'label' => __( 'Typography', 'plugin-name' ),
                     'type' => \Elementor\Controls_Manager::HEADING,
@@ -333,17 +325,17 @@ class PostList extends Widget_Base {
                   \Elementor\Group_Control_Typography::get_type(),
                   [
                     'label' => __( 'Title typography', '' ),
-                    'name' => 'big_title_typography',
+                    'name' => 'title_typography',
                     'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title',
                   ]
                 );
 
                 $this->add_control(
-                  'big_title_color_1',
+                  'title_color_1',
                   [
                     'label' => __( 'Title color', '' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
-                    'default' => '#000000',
+                    'default' => '#3e3e3e',
                     'selectors' => [
                       '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title' => 'color: {{VALUE}}',
                     ],
@@ -354,18 +346,18 @@ class PostList extends Widget_Base {
                   \Elementor\Group_Control_Typography::get_type(),
                   [
                     'label' => __( 'Description typography', '' ),
-                    'name' => 'big_desc_typography',
+                    'name' => 'desc_typography',
                     'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description',
                   ]
                 );
 
 
                 $this->add_control(
-                  'big_description_color_2',
+                  'description_color_2',
                   [
                     'label' => __( 'Description color', '' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
-                    'default' => '#000000',
+                    'default' => '#212529',
                     'selectors' => [
                       '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner p' => 'color: {{VALUE}}',
                     ],
@@ -375,16 +367,16 @@ class PostList extends Widget_Base {
                 $this->add_group_control(
                   \Elementor\Group_Control_Typography::get_type(),
                   [
-                    'label' => __( 'Big details typography', '' ),
-                    'name' => 'big_details_typography',
+                    'label' => __( 'Details typography', '' ),
+                    'name' => 'details_typography',
                     'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner .comments-views-date span',
                   ]
                 );
 
                 $this->add_control(
-                  'big_details_color_2',
+                  'details_color_2',
                   [
-                    'label' => __( 'details color', '' ),
+                    'label' => __( 'Details color', '' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#989898',
                     'selectors' => [
@@ -393,8 +385,21 @@ class PostList extends Widget_Base {
                   ]
                 );
 
+                $this->add_control(
+                  'small_category_display',
+                  [
+                    'label' => __( 'Category display', 'menheer-plugin' ),
+                    'type' => Controls_Manager::SELECT,
+                    'default' => __( 'color', 'menheer-plugin' ),
+                    'options' => [
+                      'background_color'  => __( 'Color background', 'menheer-plugin' ),
+                      'color' => __( 'Color text', 'menheer-plugin' ),
+                    ],
+                  ]
+                );
+
     $this->add_control(
-      'big_thumbnail_border',
+      'thumbnail_border',
       [
         'label' => __( 'Thumbnail border', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::HEADING,
@@ -405,20 +410,20 @@ class PostList extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Border::get_type(),
       [
-        'name' => 'big_thumb_border',
+        'name' => 'thumb_border',
         'fields_options' => [
-          'border' => ['default' => 'none'],
+          'border' => ['default' => 'solid'],
           'width' => [
             'default' => [
-              'top' => 0,
-              'right' => 0,
-              'bottom' => 0,
-              'left' => 0,
+              'top' => 1,
+              'right' => 1,
+              'bottom' => 1,
+              'left' => 1,
               'unit'=> 'px',
               'isLinked' => true,
             ],
           ],
-          'color' => ['default' => '#FFFFFF'],
+          'color' => ['default' => '#dee2e6'],
         ],
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper .thumbnail',
       ]
@@ -436,7 +441,7 @@ class PostList extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Border::get_type(),
       [
-        'name' => 'big_itemborder',
+        'name' => 'itemborder',
         'fields_options' => [
       'width' => [
         'default' => [
@@ -448,7 +453,7 @@ class PostList extends Widget_Base {
           'isLinked' => true,
         ],
       ],
-      'color' => ['default' => '#000'],
+      'color' => ['default' => '#dee2e6'],
     ],
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper',
       ]
@@ -523,7 +528,7 @@ class PostList extends Widget_Base {
 
 
     $this->add_responsive_control(
-      'big_grid_item_padding',
+      'grid_item_padding',
       [
         'label' =>esc_html__( 'Big Grid item padding', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
@@ -545,7 +550,7 @@ class PostList extends Widget_Base {
 
 
             $this->add_control(
-              'big_margins_section',
+              'margins_section',
               [
                 'label' => __( 'Margins', 'plugin-name' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
@@ -557,7 +562,7 @@ class PostList extends Widget_Base {
 
 
                 $this->add_responsive_control(
-                  'big_category_margin_bottom',
+                  'category_margin_bottom',
                   [
                     'label' => __( 'Category margin bottom', 'menheer-plugin' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -569,15 +574,15 @@ class PostList extends Widget_Base {
                     ],
                     'devices' => [ 'desktop', 'tablet', 'mobile' ],
                     'desktop_default' => [
-                      'size' => 10,
+                      'size' => 2,
                       'unit' => 'px',
                     ],
                     'tablet_default' => [
-                      'size' => 10,
+                      'size' => 2,
                       'unit' => 'px',
                     ],
                     'mobile_default' => [
-                      'size' => 10,
+                      'size' => 2,
                       'unit' => 'px',
                     ],
                     'selectors' => [
@@ -587,7 +592,7 @@ class PostList extends Widget_Base {
                 );
 
                 $this->add_responsive_control(
-                  'big_title_margin_bottom',
+                  'title_margin_bottom',
                   [
                     'label' => __( 'Title margin bottom', 'menheer-plugin' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -617,7 +622,7 @@ class PostList extends Widget_Base {
                 );
 
                 $this->add_responsive_control(
-                  'big_excerpt_margin_bottom',
+                  'excerpt_margin_bottom',
                   [
                     'label' => __( 'Excerpt margin bottom', 'menheer-plugin' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -700,11 +705,11 @@ class PostList extends Widget_Base {
     $show_author_small         = $settings['show_author'];
     $show_views_small         = $settings['show_views'];
     $show_comments_small         = $settings['show_comments'];
-    $show_tags_small        = $settings['show_tags'];
     $post_count_small      = $settings['post_count'];
     $show_exerpt_small = $settings['show_exerpt'];
     $crop_small	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
     $post_content_crop_small	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 50;
+    $small_category_display = $settings['small_category_display'];
 
     $this->add_inline_editing_attributes( 'title', 'none' );
     ?>
@@ -751,7 +756,7 @@ class PostList extends Widget_Base {
     if ( $queryd->have_posts() ) : ?>
     <div class="awesomesauce-post-block post-list">
       <?php if($show_title) { ?>
-          <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+          <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
       <?php }  ?>
         <?php  require 'block_styles/post-list.php'; ?>
       <?php wp_reset_postdata(); ?>

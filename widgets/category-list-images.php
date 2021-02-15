@@ -170,7 +170,7 @@ protected function render() {
   $settings = $this->get_settings_for_display();
 
   ?>
-  <h2><?php echo $settings['title']; ?></h2>
+  <h2 class="menheer-block-title"><?php echo $settings['title']; ?></h2>
 
   <div class=="categories-with-image" style="display:grid;grid-template-columns:1fr 1fr; column-gap: 15px;">
      <?php

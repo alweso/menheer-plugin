@@ -353,9 +353,43 @@ class PostCarousel extends Widget_Base {
       [
         'label' => __( 'Title Color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#212529',
         'selectors' => [
           '{{WRAPPER}} .title' => 'color: {{VALUE}}',
+        ],
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => __( 'Details typography', '' ),
+        'name' => 'details_typography',
+        'selector' => '{{WRAPPER}} .comments-views-date span',
+      ]
+    );
+
+    $this->add_control(
+      'details_color',
+      [
+        'label' => __( 'Details color', '' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'default' => '#c9c9c9',
+        'selectors' => [
+          '{{WRAPPER}} .comments-views-date span' => 'color: {{VALUE}}',
+        ],
+      ]
+    );
+
+    $this->add_control(
+      'big_category_display',
+      [
+        'label' => __( 'Category display', 'menheer-plugin' ),
+        'type' => Controls_Manager::SELECT,
+        'default' => __( 'background_color', 'menheer-plugin' ),
+        'options' => [
+          'background_color'  => __( 'Color background', 'menheer-plugin' ),
+          'color' => __( 'Color text', 'menheer-plugin' ),
         ],
       ]
     );
@@ -380,9 +414,9 @@ class PostCarousel extends Widget_Base {
     $show_author      = $settings['show_author'];
     $show_views       = $settings['show_views'];
     $show_comments    = $settings['show_comments'];
-    $show_tags        = $settings['show_tags'];
     $crop	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
     $post_content_crop	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 50;
+    $big_category_display = $settings['big_category_display'];
 
     $slide_controls    = [
        'dot_nav_show' => $settings['dot_nav_show'],
@@ -434,7 +468,7 @@ class PostCarousel extends Widget_Base {
     if ( $queryd->have_posts() ) : ?>
     <!-- <div class="row"> -->
       <?php if($show_title) { ?>
-          <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+          <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
       <?php }  ?>
       <div data-controls="<?php echo esc_attr($slide_controls); ?>" class="post-slider owl-carousel owl-theme">
         <?php while ($queryd->have_posts()) : $queryd->the_post(); ?>
@@ -444,7 +478,7 @@ class PostCarousel extends Widget_Base {
                 <?php the_post_thumbnail('medium-horizontal', ['class' => 'img-fluid', 'title' => 'Feature image']); ?>
               </a>
             <?php endif; ?>
-
+            <?php $category_display = $big_category_display ?>
             <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/description.php'); ?>
           </div>
           <!-- </div> -->

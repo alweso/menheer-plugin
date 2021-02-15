@@ -4,5 +4,10 @@
       border-bottom: 1px solid #dee2e6;
       border-right: 1px solid #dee2e6;
       border-radius: 0px 0px 5px 5px;
-      padding: 10px;
+      background: #fff;
+      padding: 12px;
+      .thumbnail {
+        padding: 0;
+        border: none;
+      }
     }

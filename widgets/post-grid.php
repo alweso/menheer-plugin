@@ -101,7 +101,7 @@ class PostGrid extends Widget_Base {
     $this->add_control(
       'show_title',
       [
-        'label' => esc_html__('Show block title', 'menheer-plugin'),
+        'label' => esc_html__('Show title', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -115,6 +115,7 @@ class PostGrid extends Widget_Base {
         'label' => __( 'Title', 'menheer-plugin' ),
         'type' => Controls_Manager::TEXT,
         'default' => __( 'Post grid', 'menheer-plugin' ),
+        'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
 
@@ -267,9 +268,9 @@ class PostGrid extends Widget_Base {
     $this->add_control(
       'post_title_crop',
       [
-        'label'         => esc_html__( 'Post Title limit (words)', 'menheer-plugin' ),
+        'label'         => esc_html__( 'Post title limit (words)', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
-        'default' => '35',
+        'default' => '15',
 
       ]
     );
@@ -289,7 +290,7 @@ class PostGrid extends Widget_Base {
     $this->add_control(
       'post_content_crop',
       [
-        'label'         => esc_html__( 'Post Exerpt limit', 'menheer-plugin' ),
+        'label'         => esc_html__( 'Post exerpt limit', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
         'default' => '30',
         'condition' => [
@@ -302,7 +303,7 @@ class PostGrid extends Widget_Base {
     $this->add_control(
       'show_date',
       [
-        'label' => esc_html__('Show Date', 'menheer-plugin'),
+        'label' => esc_html__('Show date', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -313,21 +314,11 @@ class PostGrid extends Widget_Base {
     $this->add_control(
       'show_cat',
       [
-        'label' => esc_html__('Show Category', 'menheer-plugin'),
+        'label' => esc_html__('Show category', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
         'default' => 'yes',
-      ]
-    );
-    $this->add_control(
-      'show_tags',
-      [
-        'label' => esc_html__('Show tags', 'menheer-plugin'),
-        'type' => Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Yes', 'menheer-plugin'),
-        'label_off' => esc_html__('No', 'menheer-plugin'),
-        'default' => 'no',
       ]
     );
     $this->add_control(
@@ -397,7 +388,7 @@ class PostGrid extends Widget_Base {
       [
         'label' => __( 'Title color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#212529',
         'selectors' => [
           '{{WRAPPER}} .menheer-post-grid .wrapper--big .news-title' => 'color: {{VALUE}}',
         ],
@@ -419,7 +410,7 @@ class PostGrid extends Widget_Base {
       [
         'label' => __( 'Description color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#212529',
         'selectors' => [
           '{{WRAPPER}} .menheer-post-grid .wrapper--big .description-inner p' => 'color: {{VALUE}}',
         ],
@@ -429,16 +420,16 @@ class PostGrid extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Big details typography', '' ),
-        'name' => 'big_details_typography',
+        'label' => __( 'Details typography', '' ),
+        'name' => 'details_typography',
         'selector' => '{{WRAPPER}} .menheer-post-grid .wrapper--big .description-inner .comments-views-date span',
       ]
     );
 
     $this->add_control(
-      'big_details_color_2',
+      'details_color',
       [
-        'label' => __( 'details color', '' ),
+        'label' => __( 'Details color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#989898',
         'selectors' => [
@@ -448,7 +439,20 @@ class PostGrid extends Widget_Base {
     );
 
     $this->add_control(
-      'big_thumbnail_border',
+      'big_category_display',
+      [
+        'label' => __( 'Category display', 'menheer-plugin' ),
+        'type' => Controls_Manager::SELECT,
+        'default' => __( 'background_color', 'menheer-plugin' ),
+        'options' => [
+          'background_color'  => __( 'Color background', 'menheer-plugin' ),
+          'color' => __( 'Color text', 'menheer-plugin' ),
+        ],
+      ]
+    );
+
+    $this->add_control(
+      'thumbnail_border',
       [
         'label' => __( 'Thumbnail border', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::HEADING,
@@ -459,20 +463,20 @@ class PostGrid extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Border::get_type(),
       [
-        'name' => 'big_thumb_border',
+        'name' => 'thumb_border',
         'fields_options' => [
-          'border' => ['default' => 'none'],
+          'border' => ['default' => 'solid'],
           'width' => [
             'default' => [
-              'top' => 0,
-              'right' => 0,
-              'bottom' => 0,
-              'left' => 0,
+              'top' => 1,
+              'right' => 1,
+              'bottom' => 1,
+              'left' => 1,
               'unit'=> 'px',
               'isLinked' => true,
             ],
           ],
-          'color' => ['default' => '#FFFFFF'],
+          'color' => ['default' => '#dee2e6'],
         ],
         'selector' => '{{WRAPPER}} .menheer-post-grid .wrapper .thumbnail',
       ]
@@ -490,7 +494,7 @@ class PostGrid extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Border::get_type(),
       [
-        'name' => 'big_itemborder',
+        'name' => 'itemborder',
         'fields_options' => [
           'width' => [
             'default' => [
@@ -502,7 +506,7 @@ class PostGrid extends Widget_Base {
               'isLinked' => true,
             ],
           ],
-          'color' => ['default' => '#000'],
+          'color' => ['default' => '#dee2e6'],
         ],
         'selector' => '{{WRAPPER}} .menheer-post-grid .wrapper',
       ]
@@ -519,9 +523,9 @@ class PostGrid extends Widget_Base {
 
 
     $this->add_responsive_control(
-      'big_grid_item_column_gap',
+      'grid_item_column_gap',
       [
-        'label' =>esc_html__( 'Grid item column gap (css grid)', 'menheer-plugin' ),
+        'label' =>esc_html__( 'Column gap', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
         'default' => 15,
         'selectors' => [
@@ -531,9 +535,9 @@ class PostGrid extends Widget_Base {
     );
 
     $this->add_responsive_control(
-      'big_grid_item_row_gap',
+      'grid_item_row_gap',
       [
-        'label' =>esc_html__( 'Grid item row gap (css grid)', 'menheer-plugin' ),
+        'label' =>esc_html__( 'Row gap', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
         'default' => 15,
         'selectors' => [
@@ -570,7 +574,7 @@ class PostGrid extends Widget_Base {
     $this->add_control(
       'background',
       [
-        'label' => __( 'Background', 'menheer-plugin' ),
+        'label' => __( 'Item background', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before'
       ]
@@ -603,30 +607,29 @@ class PostGrid extends Widget_Base {
 
 
     $this->add_responsive_control(
-      'big_grid_item_padding',
+      'grid_item_padding',
       [
-        'label' =>esc_html__( 'Big Grid item padding', 'menheer-plugin' ),
+        'label' =>esc_html__( 'Grid item padding', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => [ 'px'],
         'placeholder' => '0',
         'default' => [
-          'top' => '15',
-          'right' => '15',
-          'bottom' => '15',
-          'left' => '15',
+          'top' => '0',
+          'right' => '0',
+          'bottom' => '0',
+          'left' => '0',
           'unit' => 'px',
           'isLinked' => true,
         ],
         'selectors' => [
           '{{WRAPPER}} .menheer-post-grid .wrapper--big .description-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
-        'condition' => [ 'block_style' => ['style-1', 'style-2', 'style-3'] ],
       ]
     );
 
 
     $this->add_control(
-      'big_margins_section',
+      'margins_section',
       [
         'label' => __( 'Margins', 'plugin-name' ),
         'type' => \Elementor\Controls_Manager::HEADING,
@@ -637,27 +640,27 @@ class PostGrid extends Widget_Base {
 
 
     $this->add_responsive_control(
-      'big_thumbnail_margin_bottom',
+      'thumbnail_margin_bottom',
       [
-        'label' => __( 'Big thumbnail margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Thumbnail margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'desktop_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'tablet_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'mobile_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'selectors' => [
@@ -669,27 +672,27 @@ class PostGrid extends Widget_Base {
 
 
     $this->add_responsive_control(
-      'big_category_margin_bottom',
+      'category_margin_bottom',
       [
-        'label' => __( 'Big category margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Category margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'desktop_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'tablet_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'mobile_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'selectors' => [
@@ -699,14 +702,14 @@ class PostGrid extends Widget_Base {
     );
 
     $this->add_responsive_control(
-      'big_title_margin_bottom',
+      'Title_margin_bottom',
       [
-        'label' => __( 'Big title margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Title margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
@@ -729,14 +732,14 @@ class PostGrid extends Widget_Base {
     );
 
     $this->add_responsive_control(
-      'big_excerpt_margin_bottom',
+      'Excerpt_margin_bottom',
       [
-        'label' => __( 'Big excerpt margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Excerpt margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
@@ -786,6 +789,7 @@ class PostGrid extends Widget_Base {
     $show_exerpt = $settings['show_exerpt'];
     $crop	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
     $post_content_crop	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 50;
+    $big_category_display = $settings['big_category_display'];
 
     $this->add_inline_editing_attributes( 'title', 'none' );
     ?>
@@ -836,7 +840,7 @@ class PostGrid extends Widget_Base {
     if ( $queryd->have_posts() ) : ?>
     <div class="menheer-post-grid">
       <?php if($show_title) { ?>
-        <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+        <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
       <?php }  ?>
       <?php  require 'block_styles/post-grid.php'; ?>
       <?php wp_reset_postdata(); ?>

@@ -86,6 +86,77 @@ class Comments extends Widget_Base {
 
     $this->end_controls_section();
 
+    $this->start_controls_section(
+      'general_style_settings',
+      [
+        'label' => __( 'General settings', 'menheer-plugin' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_control(
+      'typography_section',
+      [
+        'label' => __( 'Typography', 'plugin-name' ),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => __( 'Comment typography', '' ),
+        'name' => 'comment_typography',
+        'selector' => '{{WRAPPER}} .comment-box_comment-text',
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => __( 'Details typography', '' ),
+        'name' => 'details_typography',
+        'selector' => '{{WRAPPER}} .comment-box_name-and-date',
+      ]
+    );
+
+    $this->add_control(
+      'comment_color',
+      [
+        'label' => __( 'Color', '' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'default' => '#fff',
+        'selectors' => [
+          '{{WRAPPER}} .comment-box_comment' => 'color: {{VALUE}}',
+          '{{WRAPPER}} .comment-box_name-and-date' => 'border-color: {{VALUE}}',
+        ],
+      ]
+    );
+
+    $this->add_control(
+      'background_color_section',
+      [
+        'label' => __( 'Background', 'plugin-name' ),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+      ]
+    );
+
+    $this->add_control(
+      'background_color',
+      [
+        'label' => __( 'Background color', '' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'default' => '#12a6ff',
+        'selectors' => [
+          '{{WRAPPER}} .comment-box_comment-content' => 'background-color: {{VALUE}}',
+          '{{WRAPPER}} .comment-box_comment-content:before' => 'border-color: {{VALUE}} {{VALUE}} transparent transparent',
+        ],
+      ]
+    );
+
+    $this->end_controls_section();
 
 
 
@@ -121,7 +192,9 @@ class Comments extends Widget_Base {
             <div class="comment-box_comment-content">
               <a href="<?php echo esc_url(get_post_permalink($comment->comment_post_ID)); ?> ">
               <div class="comment-box_comment">
+                <div class="comment-box_comment-text">
                   <?php echo esc_html(wp_trim_words($comment->comment_content,$commnet_limit,'') ); ?>
+                </div>
                   <div class="comment-box_name-and-date">
                     <div class="comment-box_author-name">
                         <?php echo esc_html($comment->comment_author); ?>

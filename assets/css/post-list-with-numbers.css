@@ -4,14 +4,17 @@
 .post-list-with-numbers .post-number {
   display: block;
   background: #6a04ff;
-  color: white;
+  color: #fff;
   width: 25px;
   height: 25px;
   border-radius: 100%;
   position: absolute;
   left: -15px;
   top: -7px;
-  padding: 1px 3px 3px 7px;
+  font-size: 13px;
+  line-height: 25px;
+  text-align: center;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=post-list-with-numbers.css.map */

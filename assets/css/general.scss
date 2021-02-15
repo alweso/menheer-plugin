@@ -1,5 +1,38 @@
+
+/* ---------------------------------- variables ------------------------------------- */
+
+$base-color: #393939;
+$base-color-darker: #2f6b71;
+$secondary-color: #142f56;
+$medium-grey: #5f5f5f;
+$light-grey: #b6b6b6;
+$white: #ffffff;
+
+h2.menheer-block-title {
+  text-transform: uppercase;
+  font-size: 17px;
+  line-height: 22px;
+  margin-bottom: 15px;
+  color: $base-color;
+  border-left: 10px solid #d7a01e;
+  padding-left: 10px;
+}
+
+.post-format-mark {
+
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: white;
+  padding: 6px 9px;
+  border-radius: 5px;
+  i {
+    color: black;
+  }
+}
+
 .news-title {
-  color:#fff;font-size: 30px;line-height: 32px;
+  color:$white;font-size: 30px;line-height: 32px;font-weight: 700;
   .fa {
     font-size: 22px;
     margin-right: 6px;
@@ -8,7 +41,6 @@
 
 .comments-views-date {
   color:  #c9c9c9;
-  // font-size: 13px;
   font-size: 13px;
   i {
     margin-right: 3px;
@@ -34,17 +66,11 @@
 
 
   .thumbnail, .thumbnail img {
-    border-radius: 5px !important;
     overflow: hidden;
   }
 
   .widget-image {
     overflow: hidden;
-  }
-
-  .wp-post-image:hover {
-    transform: scale(1.2);
-    transition: transform 240ms ease-out;
   }
 
   .category {
@@ -59,7 +85,6 @@
       margin-right: 3px;
     }
   }
-
   .author {
     font-size: 13px;
     margin-top: 4px;
@@ -68,5 +93,58 @@
     height: 30px;
     width: 30px;
     border-radius: 100%;
+  }
+}
+
+.elementor-widget-wp-widget-tag_cloud {
+  h5 {
+    font-family: "Lato";
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-bottom: 15px;
+    color: $base-color;
+    border-left: 10px solid #d7a01e;
+    padding-left: 10px;
+  }
+  a.tag-cloud-link {
+    font-size: 14px !important;
+    border: 1px solid #b3b3b3;
+    padding: 5px;
+    line-height: 33px;
+    border-radius: 5px;
+    color: #4b4b4b;
+    background: #e6e6e6;
+    margin-right: 3px;
+    &:hover {
+      text-decoration: none;
+      background: #d2d2d2;
+    }
+  }
+}
+
+.description {
+  .category-background-color {
+    display: inline-block;
+    color: white;
+    padding: 4px 8px;
+  margin-right: 10px;
+  font-size: 10px;
+  border-radius: 2px;
+  line-height: 10px;
+  border-radius:2px;
+  }
+
+  .category-color {
+    display: inline-block;
+    color: white;
+    margin-right: 10px;
+    font-size: 11px;
+    border-radius: 2px;
+    line-height: 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.3px;
   }
 }

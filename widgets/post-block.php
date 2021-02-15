@@ -134,6 +134,7 @@ class PostBlock extends Widget_Base {
         'label' => __( 'Title', 'menheer-plugin' ),
         'type' => Controls_Manager::TEXT,
         'default' => __( 'Post block', 'menheer-plugin' ),
+        'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
 
@@ -300,7 +301,7 @@ class PostBlock extends Widget_Base {
       [
         'label'         => esc_html__( 'Post Title limit (words)', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
-        'default' => '35',
+        'default' => '15',
 
       ]
     );
@@ -348,7 +349,7 @@ class PostBlock extends Widget_Base {
       [
         'label'         => esc_html__( 'Post Exerpt limit', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
-        'default' => '30',
+        'default' => '50',
         'condition' => [ 'block_style' => ['style-6'],
         'show_exerpt_2' => ['yes'] ]
       ]
@@ -373,16 +374,6 @@ class PostBlock extends Widget_Base {
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
         'default' => 'yes',
-      ]
-    );
-    $this->add_control(
-      'show_tags',
-      [
-        'label' => esc_html__('Show tags', 'menheer-plugin'),
-        'type' => Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Yes', 'menheer-plugin'),
-        'label_off' => esc_html__('No', 'menheer-plugin'),
-        'default' => 'no',
       ]
     );
     $this->add_control(
@@ -429,7 +420,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'post_title_crop_small',
       [
-        'label'         => esc_html__( 'Post Title limit (words) s', 'menheer-plugin' ),
+        'label'         => esc_html__( 'Post title limit (words)', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
         'default' => '35',
 
@@ -439,7 +430,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'show_exerpt_small',
       [
-        'label' => esc_html__('Show excerpt s', 'menheer-plugin'),
+        'label' => esc_html__('Show excerpt', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -450,7 +441,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'post_content_crop_small',
       [
-        'label'         => esc_html__( 'Post Exerpt limit s', 'menheer-plugin' ),
+        'label'         => esc_html__( 'Post Exerpt limit', 'menheer-plugin' ),
         'type'          => Controls_Manager::NUMBER,
         'default' => '30',
         'condition' => [ 'show_exerpt_small' => ['yes'] ]
@@ -460,7 +451,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'show_date_small',
       [
-        'label' => esc_html__('Show Date s', 'menheer-plugin'),
+        'label' => esc_html__('Show Date', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -471,7 +462,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'show_cat_small',
       [
-        'label' => esc_html__('Show Category s', 'menheer-plugin'),
+        'label' => esc_html__('Show Category', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -479,19 +470,9 @@ class PostBlock extends Widget_Base {
       ]
     );
     $this->add_control(
-      'show_tags_small',
-      [
-        'label' => esc_html__('Show tags s', 'menheer-plugin'),
-        'type' => Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Yes', 'menheer-plugin'),
-        'label_off' => esc_html__('No', 'menheer-plugin'),
-        'default' => 'no',
-      ]
-    );
-    $this->add_control(
       'show_author_small',
       [
-        'label' => esc_html__('Show author s', 'menheer-plugin'),
+        'label' => esc_html__('Show author', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -501,7 +482,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'show_views_small',
       [
-        'label' => esc_html__('Show views s', 'menheer-plugin'),
+        'label' => esc_html__('Show views', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -511,7 +492,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'show_comments_small',
       [
-        'label' => esc_html__('Show comments s', 'menheer-plugin'),
+        'label' => esc_html__('Show comments', 'menheer-plugin'),
         'type' => Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'menheer-plugin'),
         'label_off' => esc_html__('No', 'menheer-plugin'),
@@ -544,18 +525,18 @@ class PostBlock extends Widget_Base {
       [
         'name' => 'big_thumb_border',
         'fields_options' => [
-          'border' => ['default' => 'none'],
+          'border' => ['default' => 'solid'],
           'width' => [
             'default' => [
-              'top' => 6,
-              'right' => 6,
-              'bottom' => 6,
-              'left' => 6,
+              'top' => 1,
+              'right' => 1,
+              'bottom' => 1,
+              'left' => 1,
               'unit'=> 'px',
               'isLinked' => true,
             ],
           ],
-          'color' => ['default' => '#FFFFFF'],
+          'color' => ['default' => '#dee2e6'],
         ],
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper .thumbnail',
       ]
@@ -575,17 +556,18 @@ class PostBlock extends Widget_Base {
       [
         'name' => 'big_itemborder',
         'fields_options' => [
+          'border' => ['default' => 'none'],
           'width' => [
             'default' => [
-              'top' => 1,
-              'right' => 1,
-              'bottom' => 1,
-              'left' => 1,
+              'top' => 0,
+              'right' => 0,
+              'bottom' => 0,
+              'left' => 0,
               'unit'=> 'px',
               'isLinked' => true,
             ],
           ],
-          'color' => ['default' => '#000'],
+          'color' => ['default' => '#dee2e6'],
         ],
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper',
       ]
@@ -659,7 +641,6 @@ class PostBlock extends Widget_Base {
       ]
     );
 
-
     $this->add_control(
       'grid_item_color',
       [
@@ -723,7 +704,7 @@ class PostBlock extends Widget_Base {
       [
         'label' => __( 'Title Color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#3e3e3e',
         'selectors' => [
           '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title' => 'color: {{VALUE}}',
         ],
@@ -761,7 +742,7 @@ class PostBlock extends Widget_Base {
       [
         'label' => __( 'Description color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#3e3e3e',
         'selectors' => [
           '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner p' => 'color: {{VALUE}}',
         ],
@@ -794,13 +775,57 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'big_details_color_2',
       [
-        'label' => __( 'details color', '' ),
+        'label' => __( 'Details color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#989898',
         'selectors' => [
           '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner .comments-views-date span' => 'color: {{VALUE}}',
         ],
         'condition' => [ 'block_style' => ['style-4', 'style-5', 'style-6'] ]
+      ]
+    );
+
+    $this->add_control(
+      'big_category_display',
+      [
+        'label' => __( 'Category display', 'menheer-plugin' ),
+        'type' => Controls_Manager::SELECT,
+        'default' => __( 'background_color', 'menheer-plugin' ),
+        'options' => [
+          'background_color'  => __( 'Color background', 'menheer-plugin' ),
+          'color' => __( 'Color text', 'menheer-plugin' ),
+        ],
+      ]
+    );
+
+    $this->add_responsive_control(
+      'thumbnail_centering',
+      [
+        'label' => __( 'Thumbnail centering', 'menheer-plugin' ),
+        'type' => \Elementor\Controls_Manager::SLIDER,
+        'range' => [
+          'px' => [
+            'min' => 0,
+            'max' => 100,
+          ],
+        ],
+        'devices' => [ 'desktop', 'tablet', 'mobile' ],
+        'desktop_default' => [
+          'size' => 50,
+          'unit' => '%',
+        ],
+        'tablet_default' => [
+          'size' => 50,
+          'unit' => '%',
+        ],
+        'mobile_default' => [
+          'size' => 50,
+          'unit' => '%',
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .wrapper--big .thumbnail a' => 'background-position-x: {{SIZE}}{{UNIT}};',
+        ],
+        'condition' => [ 'block_style' => ['style-1', 'style-2', 'style-3'] ]
       ]
     );
 
@@ -817,7 +842,7 @@ class PostBlock extends Widget_Base {
     $this->add_responsive_control(
       'big_grid_item_padding',
       [
-        'label' =>esc_html__( 'Big Grid item padding', 'menheer-plugin' ),
+        'label' =>esc_html__( 'Grid item padding', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => [ 'px'],
         'placeholder' => '0',
@@ -836,6 +861,28 @@ class PostBlock extends Widget_Base {
       ]
     );
 
+    $this->add_responsive_control(
+      'big_grid_item_padding_2',
+      [
+        'label' =>esc_html__( 'Grid item padding', 'menheer-plugin' ),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => [ 'px'],
+        'placeholder' => '0',
+        'default' => [
+          'top' => '0',
+          'right' => '0',
+          'bottom' => '0',
+          'left' => '0',
+          'unit' => 'px',
+          'isLinked' => true,
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+        'condition' => [ 'block_style' => ['style-4', 'style-5', 'style-6'] ],
+      ]
+    );
+
 
     $this->add_control(
       'big_margins_section',
@@ -851,25 +898,25 @@ class PostBlock extends Widget_Base {
     $this->add_responsive_control(
       'big_thumbnail_margin_bottom',
       [
-        'label' => __( 'Big thumbnail margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Thumbnail margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'desktop_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'tablet_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'mobile_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'selectors' => [
@@ -889,20 +936,20 @@ class PostBlock extends Widget_Base {
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'desktop_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'tablet_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'mobile_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'selectors' => [
@@ -919,7 +966,7 @@ class PostBlock extends Widget_Base {
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
@@ -949,7 +996,7 @@ class PostBlock extends Widget_Base {
         'range' => [
           'px' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 20,
           ],
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
@@ -996,7 +1043,7 @@ class PostBlock extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Small item title typography', '' ),
+        'label' => __( 'Title typography', '' ),
         'name' => 'small_title_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--small .news-title',
       ]
@@ -1006,9 +1053,9 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'small_title_color',
       [
-        'label' => __( 'Small item title Color', '' ),
+        'label' => __( 'Title Color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#3e3e3e',
         'selectors' => [
           '{{WRAPPER}}  .awesomesauce-post-block .wrapper--small .news-title' => 'color: {{VALUE}}',
         ],
@@ -1019,7 +1066,7 @@ class PostBlock extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Small description typography', '' ),
+        'label' => __( 'Description typography', '' ),
         'name' => 'small_desc_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--small .description',
       ]
@@ -1030,7 +1077,7 @@ class PostBlock extends Widget_Base {
       [
         'label' => __( 'Description color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#000000',
+        'default' => '#3e3e3e',
         'selectors' => [
           '{{WRAPPER}} .awesomesauce-post-block .wrapper--big p' => 'color: {{VALUE}}',
         ],
@@ -1040,7 +1087,7 @@ class PostBlock extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Small details typography', '' ),
+        'label' => __( 'Details typography', '' ),
         'name' => 'small_details_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--small .description-inner .comments-views-date span',
       ]
@@ -1070,7 +1117,7 @@ class PostBlock extends Widget_Base {
     $this->add_responsive_control(
       'grid_item_padding',
       [
-        'label' =>esc_html__( 'Small Grid item padding', 'menheer-plugin' ),
+        'label' =>esc_html__( 'Grid item padding', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => [ 'px'],
         'placeholder' => '0',
@@ -1110,15 +1157,15 @@ class PostBlock extends Widget_Base {
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'desktop_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'tablet_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'mobile_default' => [
-          'size' => 10,
+          'size' => 5,
           'unit' => 'px',
         ],
         'selectors' => [
@@ -1132,7 +1179,7 @@ class PostBlock extends Widget_Base {
     $this->add_responsive_control(
       'small_category_margin_bottom',
       [
-        'label' => __( 'Small category margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Category margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1142,15 +1189,15 @@ class PostBlock extends Widget_Base {
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'desktop_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'tablet_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'mobile_default' => [
-          'size' => 10,
+          'size' => 2,
           'unit' => 'px',
         ],
         'selectors' => [
@@ -1162,7 +1209,7 @@ class PostBlock extends Widget_Base {
     $this->add_responsive_control(
       'small_title_margin_bottom',
       [
-        'label' => __( 'Small title margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Title margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1192,7 +1239,7 @@ class PostBlock extends Widget_Base {
     $this->add_responsive_control(
       'small_excerpt_margin_bottom',
       [
-        'label' => __( 'Small excerpt margin bottom', 'menheer-plugin' ),
+        'label' => __( 'Excerpt margin bottom', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1254,6 +1301,18 @@ class PostBlock extends Widget_Base {
       ]
     );
 
+    $this->add_control(
+      'small_category_display',
+      [
+        'label' => __( 'Category display', 'menheer-plugin' ),
+        'type' => Controls_Manager::SELECT,
+        'default' => __( 'color', 'menheer-plugin' ),
+        'options' => [
+          'background_color'  => __( 'Color background', 'menheer-plugin' ),
+          'color' => __( 'Color text', 'menheer-plugin' ),
+        ],
+      ]
+    );
 
 
 
@@ -1281,14 +1340,14 @@ class PostBlock extends Widget_Base {
     $show_author         = $settings['show_author'];
     $show_views         = $settings['show_views'];
     $show_comments         = $settings['show_comments'];
-    $show_tags        = $settings['show_tags'];
     $post_count      = $settings['post_count'];
     $post_count_2      = $settings['post_count_2'];
     $post_count_3      = $settings['post_count_3'];
     $show_exerpt = $settings['show_exerpt'];
     $show_exerpt_2 = $settings['show_exerpt_2'];
     $crop	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
-    $post_content_crop	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 50;
+    $post_content_crop	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 20;
+    $post_content_crop_2	= (isset($settings['post_content_crop_2'])) ? $settings['post_content_crop_2'] : 50;
 
     /* Small item*/
     $show_cat_small           = $settings['show_cat_small'];
@@ -1296,11 +1355,11 @@ class PostBlock extends Widget_Base {
     $show_author_small         = $settings['show_author_small'];
     $show_views_small         = $settings['show_views_small'];
     $show_comments_small         = $settings['show_comments_small'];
-    $show_tags_small        = $settings['show_tags_small'];
     $show_exerpt_small = $settings['show_exerpt_small'];
     $crop_small	= (isset($settings['post_title_crop_small'])) ? $settings['post_title_crop_small'] : 20;
     $post_content_crop_small	= (isset($settings['post_content_crop_small'])) ? $settings['post_content_crop_small'] : 50;
-
+    $big_category_display = $settings['big_category_display'];
+    $small_category_display = $settings['small_category_display'];
 
 
     $this->add_inline_editing_attributes( 'title', 'none' );
@@ -1347,13 +1406,13 @@ class PostBlock extends Widget_Base {
 
     if($settings['post_pick_by']=='post') {
       $menheer_plugin_posts = explode(',',$settings['post_id']);
-      $arg['post__in'] = $menheer-plugin_posts;
-      $arg['posts_per_page'] = count($menheer-plugin_posts);
+      $arg['post__in'] = $menheer_plugin_posts;
+      $arg['posts_per_page'] = count($menheer_plugin_posts);
     }
 
     if($settings['post_pick_by']=='author') {
       $menheer_plugin_authors = explode(',',$settings['author_id']);
-      $arg['author__in'] = $menheer-plugin_authors;
+      $arg['author__in'] = $menheer_plugin_authors;
     }
 
     if($settings['skip_post']=='yes'){

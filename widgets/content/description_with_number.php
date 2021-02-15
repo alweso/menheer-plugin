@@ -5,16 +5,11 @@
         <?php
         $categories2 = get_the_category();
         foreach ( $categories2 as $category2 ) {
-          echo '<span style="display: inline-block;
-          color: white;
-          padding: 4px 7px;
-    margin-right: 10px;
-    background-color: #177c51;
-    font-size: 10px;
-    font-family: Arial;
-    font-weight: 500;
-    border-radius: 2px;
-    line-height: 10px; background-color:'.get_field('category_colors', $category2).';border-radius:2px;" class="acf-category-color">'.$category2->name.'</span>';
+          if ($category_display == "background_color") {
+            echo '<span style="background-color:'.get_field('category_colors', $category2).'" class="category-background-color">'.$category2->name.'</span>';
+          } else {
+            echo '<span style="color:'.get_field('category_colors', $category2).'" class="category-color">'.$category2->name.'</span>';
+          }
         }
         ?>
       </div>

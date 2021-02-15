@@ -5,16 +5,11 @@
         <?php
         $categories = get_the_category();
         foreach ( $categories as $category ) {
-          echo '<span style="display: inline-block;
-          color: white;
-          padding: 4px 7px;
-    margin-right: 10px;
-    background-color: #177c51;
-    font-size: 10px;
-    font-family: Arial;
-    font-weight: 500;
-    border-radius: 2px;
-    line-height: 10px; background-color:'.get_field('category_colors', $category).';border-radius:2px;" class="acf-category-color">'.$category->name.'</span>';
+          if ($category_display == "background_color") {
+            echo '<span style="background-color:'.get_field('category_colors', $category).'" class="category-background-color">'.$category->name.'</span>';
+          } else {
+            echo '<span style="color:'.get_field('category_colors', $category).'" class="category-color">'.$category->name.'</span>';
+          }
         }
         ?>
       </div>
@@ -26,8 +21,11 @@
         <i class="fa fa-images"></i>
   <?php  } ?>
       <?php echo esc_html(wp_trim_words(get_the_title(), $crop,'')); ?></h4>
-    <?php if(isset($show_exerpt) && $show_exerpt == "yes" || isset($show_exerpt_2)  && $show_exerpt_2 == "yes") : ?>
+    <?php if(isset($show_exerpt) && $show_exerpt == "yes") : ?>
       <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop,'...') );?></p>
+    <?php endif ?>
+    <?php if(isset($show_exerpt_2) && $show_exerpt_2 == "yes") : ?>
+      <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop_2,'...') );?></p>
     <?php endif ?>
     <span class="comments-views-date">
       <?php if($show_comments) { ?>
@@ -51,10 +49,5 @@
         </span>
       <?php } ?>
     </span>
-    <?php if($show_tags == "yes") { ?>
-      <div class="tags">
-        <?php  the_tags(); ?>
-      </div>
-    <?php }  ?>
   </div>
 </div>

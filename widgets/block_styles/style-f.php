@@ -1,16 +1,22 @@
 <?php if($show_title) { ?>
-  <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+  <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
 <?php }  ?>
 <div class="big-wrapper" style="">
   <?php $i = 0; ?>
   <?php while ($queryd->have_posts()) : $queryd->the_post();
   if ( $i == 0 ) : ?>
   <div class="wrapper wrapper--big">
-    <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-4.php'); ?>
+    <?php $category_display = $big_category_display ?>
+    <?php if ($show_exerpt_2) : ?>
+      <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-6.php'); ?>
+    <?php else: ?>
+      <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-4.php'); ?>
+    <?php endif; ?>
   </div>
 <?php endif;
 if ( $i > 0 ) : ?>
 <div class="wrapper wrapper--small">
+  <?php $category_display = $small_category_display ?>
   <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-2.php'); ?>
 </div>
 <?php endif; ?>

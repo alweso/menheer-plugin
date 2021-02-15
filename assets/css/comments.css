@@ -9,6 +9,7 @@
   border-radius: 100%;
 }
 .comment-box_comment-content {
+  line-height: 17px;
   background: #12a6ff;
   padding: 15px;
   border-radius: 20px;
@@ -16,7 +17,6 @@
   position: relative;
 }
 .comment-box_comment-content a {
-  color: #fff;
   text-decoration: none;
 }
 .comment-box_comment-content:before {
