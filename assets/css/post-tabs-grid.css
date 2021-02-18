@@ -11,4 +11,10 @@
   border: none;
 }
 
+@media (max-width: 400px) {
+  .elementor-widget-post-tabs-grid .tab-content .big-wrapper {
+    display: block !important;
+  }
+}
+
 /*# sourceMappingURL=post-tabs-grid.css.map */
