@@ -8,7 +8,7 @@
   <div class="wrapper wrapper--big">
     <?php $category_display = $big_category_display ?>
     <?php if ($show_exerpt_2) : ?>
-      <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-6.php'); ?>
+      <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-1.php'); ?>
     <?php else: ?>
       <?php include (MYPLUGIN__PLUGIN_DIR_PATH . 'widgets/content/content-4.php'); ?>
     <?php endif; ?>

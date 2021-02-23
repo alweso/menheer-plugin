@@ -186,9 +186,6 @@
   .awesomesauce-post-block.style-6 .big-wrapper .wrapper--big {
     display: block !important;
   }
-  .awesomesauce-post-block.style-6 .big-wrapper .wrapper--big .thumbnail a {
-    height: 420px !important;
-  }
 }
 @media (min-width: 801px) {
   .awesomesauce-post-block.style-1 .big-wrapper, .post-slider.style-1 .big-wrapper, .owl-item.style-1 .big-wrapper {
