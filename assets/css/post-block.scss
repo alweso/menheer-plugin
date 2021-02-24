@@ -1,5 +1,28 @@
 
 .awesomesauce-post-block, .post-slider, .owl-item {
+  &.style-1,   &.style-2,   &.style-3 {
+    .wrapper {
+      &--big {
+        .description {
+          position:relative;
+          h4, p {
+            color: #fff;
+          }
+          .description-inner {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 100px 10px 10px 10px;
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+            background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+          }
+        }
+      }
+    }
+  }
   &.style-1 {
     .big-wrapper {
       grid-template-columns:5fr 4fr;grid-auto-rows: minmax(min-content, max-content);
@@ -10,376 +33,93 @@
         .thumbnail>a {
           display:block;background-size:cover !important;height:100%;
         }
-          .description {
-            position:relative;
-            p {
-              color: #fff;
-            }
-            .description-inner {
-              position: absolute;
-              bottom: 0;
-              width: 100%;
-              padding: 100px 10px 10px 10px;
-              /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-              background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-              background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-              background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-            }
-          }
-        }
-        &--small {
-          display: grid;
-          grid-template-columns: 145px auto;
-          grid-column-gap: 10px;
+      }
+      &--small {
+        display: grid;
+        grid-template-columns: 145px auto;
+        grid-column-gap: 10px;
+      }
+    }
+  }
+  &.style-2 {
+    .wrapper {
+      &--big {
+        grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 1;grid-column-end: 3;
+        a {
+          display:block;background-size:cover !important;height:100%;
         }
       }
     }
-    &.style-2 {
-      .big-wrapper {
-        grid-template-columns:11fr 11fr 8fr 8fr;grid-auto-rows: minmax(min-content, max-content);
-      }
-      .wrapper {
-        &--big {
-          grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 1;grid-column-end: 3;
-          a {
-            display:block;background-size:cover !important;height:100%;
-          }
-          .description {
-            position:relative;
-            h4, p {
-              color: #fff;
-            }
-            .description-inner {
-              position: absolute;
-              bottom: 0;
-              width: 100%;
-              padding: 100px 10px 10px 10px;
-              /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-              background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-              background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-              background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-            }
-          }
+    .big-wrapper {
+      grid-template-columns:11fr 11fr 8fr 8fr;grid-auto-rows: minmax(min-content, max-content);
+    }
+  }
+  &.style-3 {
+    .big-wrapper {
+      grid-template-columns:8fr 8fr 11fr 11fr;grid-auto-rows: minmax(min-content, max-content);
+    }
+    .wrapper {
+      &--big {
+        grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 3;grid-column-end: 5;
+        .thumbnail>a {
+          display:block;background-size:cover !important;height:100%;
         }
       }
     }
-    &.style-3 {
-      .big-wrapper {
-        grid-template-columns:8fr 8fr 11fr 11fr;grid-auto-rows: minmax(min-content, max-content);
-      }
-      .wrapper {
-        &--big {
-          grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 3;grid-column-end: 5;
-          .thumbnail>a {
-            display:block;background-size:cover !important;height:100%;
-          }
-          .description {
-            position:relative;
-            p {
-              color: #fff;
-            }
-            .description-inner {
-              position: absolute;
-              bottom: 0;
-              width: 100%;
-              padding: 100px 10px 10px 10px;
-              /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-              background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-              background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-              background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-            }
-          }
+  }
+  &.style-4 {
+    .big-wrapper {
+      grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;
+    }
+    .wrapper {
+      &--big {
+        grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 3;grid-column-end: 4;
+        &:first-of-type {
+          grid-column-start: 1;grid-column-end:3;
+        }
+        &:nth-of-type(2) {
+          grid-column-start: 3;grid-column-end:5;
+        }
+        a.thumbnail {
+          display:block;background-size:cover;height:100%;
         }
       }
     }
-    &.style-5 {
-      .big-wrapper {
-        grid-template-columns:1fr 1fr;
-      }
-      .wrapper {
-        &--big {
-          grid-column-start: 1;
-          grid-column-end: 3;
-        }
-        &--small {
-          .thumbnail {
-            width:200px;float:left;margin-right:10px;
-          }
-        }
-      }
+  }
+  &.style-5 {
+    .big-wrapper {
+      grid-template-columns:1fr 1fr;
     }
-
-    &.style-6 {
-      .big-wrapper {
-        grid-template-columns:1fr 1fr 1fr 1fr;
+    .wrapper {
+      &--big {
+        grid-column-start: 1;
+        grid-column-end: 3;
       }
-      .wrapper {
-        &--big {
-          grid-column-start: 1;
-          grid-column-end: 5;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-column-gap: 15px;
-          position:relative;
-          a {
-            display:block;background-size:cover !important;
-          }
+      &--small {
+        .thumbnail {
+          width:200px;float:left;margin-right:10px;
         }
       }
     }
   }
 
-    @media (max-width: 400px) {
-      .awesomesauce-post-block {
-          &.style-1, &.style-2  {
-            .big-wrapper {
-              grid-template-columns:1fr;
-              .wrapper {
-                &--big {
-                  height: 250px;
-                }
-                &--small {
-                  display: block !important;
-                }
-              }
-            }
-          }
 
-          // &.style-1, &.style-2, &.style-3, &.style-6 {
-          //   .big-wrapper {
-          //     .wrapper {
-          //       &--big {
-          //         height: 250px;
-          //       }
-          //     }
-          //   }
-          // }
-
-          &.style-2, &.style-3, &.style-5 {
-            .big-wrapper {
-              display: block !important;
-            }
-          }
+  &.style-6 {
+    .big-wrapper {
+      grid-template-columns:1fr 1fr 1fr 1fr;
+    }
+    .wrapper {
+      &--big {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 15px;
+        position:relative;
+        a {
+          display:block;background-size:cover !important;
+        }
       }
     }
-
-
-  @media (min-width: 401px) and (max-width: 800px) {
-    .awesomesauce-post-block {
-        &.style-1 {
-          .big-wrapper {
-            grid-template-columns:1fr;
-            .wrapper {
-              &--big {
-                height: 420px;
-              }
-            }
-          }
-        }
-
-        &.style-2 {
-          .big-wrapper {
-            grid-template-columns:1fr 1fr;
-            .wrapper {
-              &--big {
-                height: 420px;
-              }
-            }
-          }
-        }
-
-        &.style-3 {
-          .big-wrapper {
-            grid-template-columns:1fr 1fr;
-            .wrapper {
-              &--big {
-                height: 420px;
-                grid-row-start:1;
-                grid-row-end:2;
-                grid-column-start: 1;
-                grid-column-end: 3;
-              }
-            }
-          }
-        }
-
-        &.style-4 {
-          .big-wrapper {
-            grid-template-columns: 1fr 1fr !important;
-          }
-        }
-
-        &.style-6 {
-          .big-wrapper {
-            display: block !important;
-            .wrapper {
-              &--big {
-                .thumbnail {
-                  a {
-                    // height: 420px !important;
-                  }
-                }
-                display: block !important;
-              }
-            }
-          }
-        }
-    }
   }
-
-  @media (min-width: 801px) {
-    .awesomesauce-post-block, .post-slider, .owl-item {
-      &.style-1 {
-        .big-wrapper {
-          grid-template-columns:5fr 4fr;grid-auto-rows: minmax(min-content, max-content);
-        }
-        .wrapper {
-          &--big {
-            grid-row-start:1;grid-row-end:5;position:relative;
-            .thumbnail>a {
-              display:block;background-size:cover !important;height:100%;
-            }
-              .description {
-                position:relative;
-                p {
-                  color: #fff;
-                }
-                .description-inner {
-                  position: absolute;
-                  bottom: 0;
-                  width: 100%;
-                  padding: 100px 10px 10px 10px;
-                  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-                  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-                  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-                  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-                }
-              }
-            }
-            &--small {
-              display: grid;
-              grid-template-columns: 145px auto;
-              grid-column-gap: 10px;
-            }
-          }
-        }
-        &.style-2 {
-          .big-wrapper {
-            grid-template-columns:11fr 11fr 8fr 8fr;grid-auto-rows: minmax(min-content, max-content);
-          }
-          .wrapper {
-            &--big {
-              grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 1;grid-column-end: 3;
-              a {
-                display:block;background-size:cover !important;height:100%;
-              }
-              .description {
-                position:relative;
-                h4, p {
-                  color: #fff;
-                }
-                .description-inner {
-                  position: absolute;
-                  bottom: 0;
-                  width: 100%;
-                  padding: 100px 10px 10px 10px;
-                  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-                  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-                  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-                  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-                }
-              }
-            }
-          }
-        }
-        &.style-3 {
-          .big-wrapper {
-            grid-template-columns:8fr 8fr 11fr 11fr;grid-auto-rows: minmax(min-content, max-content);
-          }
-          .wrapper {
-            &--big {
-              grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 3;grid-column-end: 5;
-              .thumbnail>a {
-                display:block;background-size:cover !important;height:100%;
-              }
-              .description {
-                position:relative;
-                p {
-                  color: #fff;
-                }
-                .description-inner {
-                  position: absolute;
-                  bottom: 0;
-                  width: 100%;
-                  padding: 100px 10px 10px 10px;
-                  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-                  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-                  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-                  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-                }
-              }
-            }
-          }
-        }
-        &.style-4 {
-          .big-wrapper {
-            grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;
-          }
-          .wrapper {
-            &--big {
-              grid-row-start:1;grid-row-end:3;position:relative;grid-column-start: 3;grid-column-end: 4;
-              &:first-of-type {
-                grid-column-start: 1;grid-column-end:3;
-              }
-              &:nth-of-type(2) {
-                grid-column-start: 3;grid-column-end:5;
-              }
-              a.thumbnail {
-                display:block;background-size:cover;height:100%;
-              }
-            }
-          }
-        }
-        &.style-5 {
-          .big-wrapper {
-            grid-template-columns:1fr 1fr;
-          }
-          .wrapper {
-            &--big {
-              grid-column-start: 1;
-              grid-column-end: 3;
-            }
-            &--small {
-              .thumbnail {
-                width:200px;float:left;margin-right:10px;
-              }
-            }
-          }
-        }
-
-        &.style-6 {
-          .big-wrapper {
-            grid-template-columns:1fr 1fr 1fr 1fr;
-          }
-          .wrapper {
-            &--big {
-              grid-column-start: 1;
-              grid-column-end: 5;
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              grid-column-gap: 15px;
-              position:relative;
-              a {
-                display:block;background-size:cover !important;
-              }
-            }
-          }
-        }
-      }
-  }
+}
