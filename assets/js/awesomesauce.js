@@ -40,6 +40,7 @@ jQuery( window ).on( 'elementor/frontend/init', () => {
          if (this.elements.$secondSelector.length > 0) {
                         this.elements.$secondSelector.owlCarousel({
                            items: item_count,
+                           center: false,
                            loop: true,
                            autoplay: autoslide,
                            nav: false,

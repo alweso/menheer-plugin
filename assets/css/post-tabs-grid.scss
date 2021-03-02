@@ -10,14 +10,18 @@
         padding: 0;
         border: none;
       }
+      .big-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
 
 
       @media (max-width: 400px) {
         .elementor-widget-post-tabs-grid .tab-content {
-            .big-wrapper {
-              display: block !important;
-            }
+            // .big-wrapper {
+            //   display: grid;
+            // }
         }
       }

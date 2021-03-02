@@ -297,7 +297,7 @@ $this->add_responsive_control(
     'default' => '1fr 1fr',
     'devices' => [ 'desktop', 'tablet', 'mobile' ],
     'selectors' => [
-      '{{WRAPPER}} .big-wrapper' => 'grid-template-columns: {{VALUE}};',
+      '{{WRAPPER}} .big-wrapper' => 'grid-template-columns: {{VALUE}}',
     ],
   ]
 );

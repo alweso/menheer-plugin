@@ -292,12 +292,12 @@ class PostCarousel extends Widget_Base {
          [
            'label'         => esc_html__( 'Post show', 'menheer-plugin' ),
            'type'          => Controls_Manager::NUMBER,
-           'default'       => 5,
+           'default'       => 4,
          ]
        );
 
         $this->add_control(
-         'menheer-plugin_slider_autoplay',
+         'menheer_plugin_slider_autoplay',
              [
              'label' => esc_html__( 'Autoplay', 'menheer-plugin' ),
              'type' => \Elementor\Controls_Manager::SWITCHER,
