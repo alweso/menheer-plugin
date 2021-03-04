@@ -466,6 +466,27 @@ class PostListWithNumbers extends Widget_Base {
       ]
     );
 
+    $this->add_responsive_control(
+      'thumbnail_padding',
+      [
+        'label' =>esc_html__( 'Thumbnail padding', 'menheer-plugin' ),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => [ 'px'],
+        'placeholder' => '0',
+        'default' => [
+          'top' => '7',
+          'right' => '7',
+          'bottom' => '7',
+          'left' => '7',
+          'unit' => 'px',
+          'isLinked' => true,
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .thumbnail' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+      ]
+    );
+
 
             $this->add_control(
               'big_margins_section',
@@ -596,7 +617,7 @@ class PostListWithNumbers extends Widget_Base {
     $crop_small	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
     $post_content_crop_small	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 50;
     $big_category_display = $settings['big_category_display'];
-    
+
     $this->add_inline_editing_attributes( 'title', 'none' );
     ?>
     <?php

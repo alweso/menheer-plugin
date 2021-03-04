@@ -862,6 +862,27 @@ class PostBlock extends Widget_Base {
     );
 
     $this->add_responsive_control(
+      'thumbnail_padding',
+      [
+        'label' =>esc_html__( 'Thumbnail padding', 'menheer-plugin' ),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => [ 'px'],
+        'placeholder' => '0',
+        'default' => [
+          'top' => '7',
+          'right' => '7',
+          'bottom' => '7',
+          'left' => '7',
+          'unit' => 'px',
+          'isLinked' => true,
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .thumbnail' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+      ]
+    );
+
+    $this->add_responsive_control(
       'big_grid_item_padding_2',
       [
         'label' =>esc_html__( 'Grid item padding', 'menheer-plugin' ),

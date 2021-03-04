@@ -148,3 +148,35 @@ h2.menheer-block-title {
     letter-spacing: 0.3px;
   }
 }
+
+.elementor-widget-wp-widget-categories {
+ ul {
+   list-style-type: none;
+   padding: 0;
+ }
+ h5 {
+font-weight: 600;
+text-transform: uppercase;
+font-size: 17px;
+margin-bottom: 15px;
+border-left: 10px solid #d7a01e;
+padding-left: 10px;
+
+ }
+ li {
+   text-align: right;
+   border-bottom: 1px solid #535353;
+ }
+ a {
+   float: left;
+ }
+
+ &.on-dark {
+   h5 {
+     color: white;
+   }
+   li, a {
+     color: #B9B9B9;
+   }
+ }
+}
