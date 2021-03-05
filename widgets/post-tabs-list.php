@@ -324,7 +324,7 @@ $this->add_responsive_control(
               $this->add_group_control(
                 \Elementor\Group_Control_Typography::get_type(),
                 [
-                  'label' => __( 'Title typography', '' ),
+                  'label' => __( 'Headline typography', '' ),
                   'name' => 'big_title_typography',
                   'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title',
                 ]
@@ -333,7 +333,7 @@ $this->add_responsive_control(
               $this->add_control(
                 'big_title_color_1',
                 [
-                  'label' => __( 'Title color', '' ),
+                  'label' => __( 'Headline color', '' ),
                   'type' => \Elementor\Controls_Manager::COLOR,
                   'default' => '#212529',
                   'selectors' => [

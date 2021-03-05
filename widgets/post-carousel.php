@@ -333,11 +333,24 @@ class PostCarousel extends Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Title typography', '' ),
+        'label' => __( 'Headline typography', '' ),
         'name' => 'title_typography',
         'selector' => '{{WRAPPER}} .title',
       ]
     );
+
+    $this->add_control(
+      'title_color',
+      [
+        'label' => __( 'Headline Color', '' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'default' => '#212529',
+        'selectors' => [
+          '{{WRAPPER}} .title' => 'color: {{VALUE}}',
+        ],
+      ]
+    );
+
 
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
@@ -345,18 +358,6 @@ class PostCarousel extends Widget_Base {
         'label' => __( 'Description typography', '' ),
         'name' => 'desc_typography',
         'selector' => '{{WRAPPER}} .description',
-      ]
-    );
-
-    $this->add_control(
-      'title_color',
-      [
-        'label' => __( 'Title Color', '' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'default' => '#212529',
-        'selectors' => [
-          '{{WRAPPER}} .title' => 'color: {{VALUE}}',
-        ],
       ]
     );
 
