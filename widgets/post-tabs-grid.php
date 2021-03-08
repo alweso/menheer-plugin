@@ -326,6 +326,27 @@ $this->add_responsive_control(
               $this->add_group_control(
                 \Elementor\Group_Control_Typography::get_type(),
                 [
+                  'label' => __( 'Widget title typography', '' ),
+                  'name' => 'big_title_typography',
+                  'selector' => '{{WRAPPER}} .menheer-block-title',
+                ]
+              );
+
+              $this->add_control(
+                'widget_title_color',
+                [
+                  'label' => __( 'Widget title color', '' ),
+                  'type' => \Elementor\Controls_Manager::COLOR,
+                  'default' => '#393939',
+                  'selectors' => [
+                    '{{WRAPPER}} .menheer-block-title' => 'color: {{VALUE}}',
+                  ],
+                ]
+              );
+              
+              $this->add_group_control(
+                \Elementor\Group_Control_Typography::get_type(),
+                [
                   'label' => __( 'Headline typography', '' ),
                   'name' => 'big_title_typography',
                   'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title',

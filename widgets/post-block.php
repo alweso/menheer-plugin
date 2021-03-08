@@ -510,6 +510,26 @@ class PostBlock extends Widget_Base {
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => __( 'Widget title typography', '' ),
+        'name' => 'big_title_typography',
+        'selector' => '{{WRAPPER}} .menheer-block-title',
+      ]
+    );
+
+    $this->add_control(
+      'widget_title_color',
+      [
+        'label' => __( 'Widget title color', '' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'default' => '#393939',
+        'selectors' => [
+          '{{WRAPPER}} .menheer-block-title' => 'color: {{VALUE}}',
+        ],
+      ]
+    );
 
     $this->add_control(
       'big_thumbnail_border',
@@ -702,7 +722,7 @@ class PostBlock extends Widget_Base {
     $this->add_control(
       'big_title_color_2',
       [
-        'label' => __( 'Title Color', '' ),
+        'label' => __( 'Headline Color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#3e3e3e',
         'selectors' => [
